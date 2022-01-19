@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="path"></div>
+            <div class="form" id="form">
+                <h1>Login</h1><br><br>
+                <label>Username</label><br>
+                <input type="text"><br><br>
+                <label>Password</label><br><br>
+                <input type="Password"><br><br>
+                <button id="button">Sign in</button>
+            </div>
+            <img src="man2.png" id="man2">
+            <img src="peace2.png" id="peace2">
+            <h2 id="head">WELCOME TO <I>Mr.Peace</I> <br> WORLD</h2>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const box = document.querySelector('.box');
+    const container = document.querySelector('.container');
+    const head = document.querySelector('#head');
+    const man2 = document.querySelector('#man2');
+    const peace2 = document.querySelector('#peace2');
+    const form = document.querySelector('#form');
+
+
+    container.addEventListener("mousemove", (e) => {
+        
+        let horizontal = (window.innerWidth / 2 - e.pageX) / 10;
+        let vertical = (window.innerHeight / 2 - e.pageY) / 10;
+        box.style.transform = `rotateX(${vertical}deg) rotateY(${horizontal}deg)`;
+
+    });
+
+    container.addEventListener("mouseenter", (e) => {
+        box.style.transition = ".1s";
+        head.style.transform = "translateZ(120px)";
+        man2.style.transform = "translateZ(150px)";
+        peace2.style.transform = "translateZ(130px)";
+        form.style.transform = "translateZ(100px)";
+    });
+
+    container.addEventListener("mouseleave", (e) => {
+        box.style.transition = ".1s";
+        box.style.transform = "rotateY(0deg) rotateX(0deg)"
+        head.style.transform = "translateZ(0px)";
+        man2.style.transform = "translateZ(0px)";
+        peace2.style.transform = "translateZ(0px)";
+        form.style.transform = "translateZ(0px)";
+    })
+
+</script>
